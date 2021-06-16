@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="login1.css">
+<title>WEB DEVELOPMENT</title>
+<style>
+main{
+	display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr; 
+    grid-template-rows:1fr 1fr 1fr 1fr;
+    height:300px;
+	overflow:none;
+}
+footer{
+	position:relative;
+	top: 1100px;
+}
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+
+	padding: 55px 50px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+	.main {
+		line-height: normal;
+		font-size: auto;
+	}
+
+}
+</style>
+</head>
+<body background="back.jpg">
+	<div class="modal animate" id="id01">
+		<form action="signin.php" name="myform" class="modal-content" method="post" onsubmit="return validate()">
+		<div>
+				<span onclick="document.getElementById('id01').style.display='none'" class="close">&times;</span>
+			
+		</div>
+
+		<h2 style="color:white">Log In</h2>
+		<input type="text" id="email" placeholder="Email-Id" autocomplete="off"><br><span id="emailerror" style="color:red;"></span>
+		<input type="password" id="pass" placeholder="Password" autocomplete="off"><br><br><span id="passworderror" style="color:red;"></span>
+		<input type="Submit" value="Log In" ><br>
+	
+		<br>
+		<div id="container">
+			<a href="#" onclick="reset()" style="margin-right:0px; font-size:13px; font-family:Tahoma, Geneva, sans-serif;">Reset Password</a>
+			<a href="forgot.html" style="margin-right:0px; font-size:13px; font-family:Tahoma, Geneva, sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp; Forgot Password</a>
+		</div><br><br><br><br><br><br>
+		Don't have account?<a href="#" onclick="signup()" style="width:auto;"style="font-family:'Play',sans-serif;">  Sign Up</a>
+	
+		</form>
+	</div>
+	<div class="modal animate" id="id02">
+		<form action="signup.php" name="myform" class="modal-content" onsubmit="return validatesignup()">
+			<div>
+				<span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+			
+			</div>
+	
+			<h2 style="color:white;">Sign Up</h2>
+			<input type="text" name="user1" id="user1" placeholder="First name" autocomplete="off"><br><br><span id="user1error" style="color:red;"></span>
+			<input type="text" name="user" id="user" placeholder="Last name" autocomplete="off"><br><br><span id="usererror" style="color:red;"></span>
+			<input type="password" name="pass1" id="pass1" placeholder="password" autocomplete="off"><br><br><span id="pass1error" style="color:red;"></span>
+			<input type="password" name="cpass1" id="cpass1" placeholder="Confirm Password" autocomplete="off"><br><br><span id="cpass1error" style="color:red;"></span>
+			<input type="text" name="email1" id="email1" placeholder="Email address" autocomplete="off"><br><br><span id="email1error" style="color:red;"></span>
+			<input type="text" name="phone" id="phone" placeholder="Phone No." autocomplete="off"><br><br><span id="phoneerror" style="color:red;"></span>
+			<input type="Submit" value="Sign up"><br><br>
+			Already have account?<a href="#" onclick="login()" style="width:auto;" style="text-decoration:none; font-family: 'Play', sans-serif; color:yellow;">&nbsp;Log In</a>
+					
+					
+					
+		</form>
+	</div>
+	<div class="modal animate" id="id03">
+	
+		<form action="reset.php" class="modal-content" method="post" onsubmit="return validatereset()">
+		<div>
+				<span onclick="document.getElementById('id03').style.display='none'" class="close">&times;</span>
+			
+		</div>
+			<h2 align="center" style="color:white;">Reset password</h2>
+			<input type="password" name="opass" id="opass" placeholder="Old password" /><br><br><span id="opasserror" style="color:red;"></span>
+			<input type="password" name="npass" id="npass" placeholder="New password" /><br><br><span id="npasserror" style="color:red;"></span>
+			<input type="password" name="cpassword" id="cpassword" placeholder="Confirm new password" /><br><br><span id="cpassworderror" style="color:red;"></span>
+			<input type="Submit" value="Save"/><br><br>
+			<a href="#" style="text-decoration:none;">Go back to Login page</a><br><br>
+	</form>
+	</div>
+
+<div class="topnav" id="myTopnav">
+		<div class="logo">
+			<img src="stromness-hotel-logo.jpg"> 
+		</div>	
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#gallery">Gallery</a></li>
+			<li><a href="#menu">Menu</a></li>
+			<li><a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a></li>
+			<li><a href="#contact">Contact</a></li>
+			 
+		</ul>
+</div>
+		<a name="home"></a>
+		<div class="slideshow-container">
+			
+			<div class="mySlides fade">
+				<img src="wait.jpg" style="width:100%; height:90vh;">
+				
+			</div>
+
+			<div class="mySlides fade">
+				<img src="cheif.jpg" style="width:100%;height:90vh;">
+			
+			</div>
+
+			<div class="mySlides fade">
+				<img src="eating.jpg" style="width:100%;height:90vh;">
+				
+			</div>
+			
+			<div class="mySlides fade">
+				<img src="bar.jpg" style="width:100%;height:90vh;">
+				
+			</div>
+			<div class="mySlides fade">
+				<img src="banquet.jpg" style="width:100%;height:90vh;">
+				
+			</div>
+		</div>
+		<div style="text-align:center">
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+			<span class="dot"></span>
+			<span class="dot"></span>
+		</div>
+		<a name="about">
+<br><br><br><br><br>
+		
+	<div class="data">
+	</a><h1 style="color:white"><center>About Us</center> </h1>
+	
+	<center><img src="chef.jpg" style="width:75%;height:50vh;"></center>
+	<p style="color:white;text-align:center;font-size:45px;">
+		The Stromness is not just a Hotel it's<br>
+		A Heaven on Earth
+	</p>
+	<img src="family.jpg" width="800" height="500" 
+	style="float:left; margin-right:10px; margin-bottom:5px;margin-left:40px;margin-top:20px">
+	<p style="color:white;text-align:center;margin-top:20px;font-size:25px;"><br><br><br><br><br>We provide Happieness,silence,comfort and also The best experience You Can have in any other restaurant
+	Its all Started with The Awesome Food Making Ability of Our Master chef <u>MR.Satyansh Vaish</u> and The awesome Startup plan Of <u>Miss Aakriti Aggarwal</u>,And also with the best ability of management By <u>MR.Akshat Agrawal</u> 
+	.And the result of it the most rated Best hotel named as <br><u><b><i>The Stromness</i></b></u>
+	</p>
+	<img src="del.jpg" width="800" height="500" 
+	style="float:right; margin-right:40px; margin-bottom:5px;margin-left:10px;margin-top:20px">
+	<p style="color:white;text-align:center;margin-top:20px;font-size:25px;"><br><br><br><br><br><br><br><br>We Also provide our awesome food to your doorsteps.<br>Our Delivery Boys are All 24*7 ready to serve you and your family with your choice of food with no limits.
+	within 30 minutes guarantee delivery or 50% off on bill.<br>So Lets get Started With <br>YOUR VERY FIRST ORDER <br>with us.
+	
+	</p>
+	<img src="take.jpg" width="800" height="500" 
+	style="float:left; margin-right:10px; margin-bottom:5px;margin-left:40px;margin-top:20px">
+	<p style="color:white;text-align:center;margin-top:20px;font-size:25px;"><br><br><br><br><br><br><br><br><br>
+	Thats not it , we also provide you with the take away<br> facility so that you can have your choice of food as per<br> your convenience and as per your need.<br>Our motive is to provide you with the best experience
+<br>	you ever head with any hotel.
+	</p>
+	<br>
+	</div>
+    <br>	<br>
+	<br>
+	<br>
+	<br>
+    <br>
+	<a name="gallery"></a>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	
+	<div class="gall">
+		<p style="color:white;font-size:45px;text-align:center"><b>Gallery</b></p>
+	
+
+		
+	</div>
+<main>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="north.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+	   
+    <div class="gallery">
+        <a target="_blank" href="south.jpg">
+            <img src="south.jpg" alt="Forest" style="height:250px;width:300px">
+        </a>
+       
+    </div>
+
+    <div class="gallery">
+        <a target="_blank" href="cont.jpg">
+            <img src="cont.jpg" alt="Northern Lights" style="height:250px;width:300px">
+        </a>
+            </div>  
+    
+    <div class="gallery">
+        <a target="_blank" href="italian.jpeg">
+            <img src="italian.jpeg" alt="Mountains" style="height:250px;width:300px">
+        </a>
+       
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="gal.png" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="gal2.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="gal3.jpeg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="s1.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="s2.png" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="s3.jfif" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="s4.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="c1.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="c2.webp" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="c3.webp" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="c4.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="i1.jpg" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="i2.png" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="i3.jfif" style="height:250px;width:300px">
+        </a>
+        
+
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="north.jpg">
+           <img src="i4.jfif" style="height:250px;width:300px">
+        </a>
+     </div>
+</main>
+
+	<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>WebDev<span>Trick</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="#">Pricing</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">webdevtrick &copy; 2019</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>21 Revolution Street</span> Delhi, India</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">contact@webdevtrick.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Web Dev Trick is a blog for web designers, graphic designers, web developers &amp; SEO Learner.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+
+    
+
+
+	<script>
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";  
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {slideIndex = 1}    
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";  
+			dots[slideIndex-1].className += " active";
+			setTimeout(showSlides, 3000); // Change image every 2 seconds
+		}
+</script>
+	
+<script>
+    
+        var close=document.getElementById('id01');
+		window.onclick = function(event) {
+		if (event.target == close) {
+			close.style.display = "none";
+		}
+        
+    }
+</script>
+
+	<script>
+        function login(){
+            var log=document.getElementById('id01');
+            var sign=document.getElementById('id02');
+            log.style.display="block";
+            sign.style.display="none";
+            
+        }
+            
+	</script>
+	<script>
+        function signup(){
+            var login=document.getElementById('id01');
+            var signup=document.getElementById('id02');
+            signup.style.display="block";
+            login.style.display="none";
+        }    
+    </script>
+    
+	<script>
+        function reset(){
+            var log1=document.getElementById('id01');
+            var reset=document.getElementById('id03');
+            reset.style.display="block";
+            log1.style.display="none";
+        }    
+    </script>
+	<script>
+	function validate(){
+		var email=document.getElementById('email').value;
+		var pass=document.getElementById('pass').value;
+		
+		var emailcheck=/^[A-Za-z0-9_.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+		var passcheck=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+		
+		if(emailcheck.test(email))
+		{
+			document.getElementById("emailerror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("emailerror").innerHTML="** Email is Invalid";
+			document.getElementById('email').focus();
+			return false;
+		}
+		if(passcheck.test(pass))
+		{
+			document.getElementById("passworderror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("passworderror").innerHTML="** Password is Invalid";
+			document.getElementById('pass').focus();
+			return false;
+		}
+		
+	}	
+</script>
+<script>
+	function validatesignup()
+	{
+		var user1=document.getElementById('user1').value;
+		var user=document.getElementById('user').value;
+		var pass1=document.getElementById('pass1').value;
+		var cpass1=document.getElementById('cpass1').value;
+		var email1=document.getElementById('email1').value;
+        var phone=document.getElementById('phone').value;
+		
+		
+		var user1check=/^[a-zA-Z]{3,30}$/;
+		var usercheck=/^[A-Za-z]{3,30}$/;
+		var pass1check=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+		var emailcheck=/^[A-Za-z0-9_.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+        var phonecheck=/^[6789]{1}[0-9]{9}$/;
+        
+		if(user1check.test(user1))
+		{
+			document.getElementById("user1error").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("user1error").innerHTML="** First name is Invalid";
+			document.getElementById('user1').focus();
+			return false;
+		}
+		if(usercheck.test(user))
+		{
+			document.getElementById("usererror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("usererror").innerHTML="** Last nameis Invalid";
+			document.getElementById('user').focus();		
+			return false;
+		}
+		if(pass1check.test(pass1))
+		{
+			document.getElementById("pass1error").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("pass1error").innerHTML="** Password is Invalid";
+			document.getElementById('pass1').focus();		
+			return false;
+		}
+		if(pass1.match(cpass1))
+		{
+			document.getElementById("cpass1error").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("cpass1error").innerHTML="** Password is not matching";
+			document.getElementById('cpass1').focus();
+			return false;
+		}
+		if(emailcheck.test(email1))
+		{
+			document.getElementById("email1error").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("email1error").innerHTML="** Email is Invalid";
+			document.getElementById('email1').focus();
+			return false;
+		}
+        if(phonecheck.test(phone))
+        {
+                document.getElementById("phoneerror").innerHTML=" ";
+        }
+		else
+		{
+			document.getElementById("phoneerror").innerHTML="** Phone Number is Invalid";
+			document.getElementById('phone').focus();
+			return false;
+		}
+            
+	}	
+</script>
+<script>
+	function validatereset(){
+		
+		var opass=document.getElementById('opass').value;
+		var npass=document.getElementById('npass').value;
+		var cpassword=document.getElementById('cpassword').value;
+		
+		var passcheck=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+		
+		if(passcheck.test(opass))
+		{
+			document.getElementById("opasserror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("opasserror").innerHTML="** Password is Invalid";
+			document.getElementById('opass').focus();		
+			return false;
+		}
+		if(passcheck.test(npass))
+		{
+			document.getElementById("npasserror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("npasserror").innerHTML="** Password is Invalid";
+			document.getElementById('npass').focus();		
+			return false;
+		}
+		if(npass.match(cpassword))
+		{
+			document.getElementById("cpassworderror").innerHTML=" ";
+		}
+		else
+		{
+			document.getElementById("cpassworderror").innerHTML="** Password is not matching";
+			document.getElementById('cpassword').focus();
+			return false;
+		}
+		
+		
+		
+	}
+</script>
+
+
+</body>
+</html>
